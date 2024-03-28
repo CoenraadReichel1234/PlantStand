@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js? config=TeX-MML-AM-_CHTML"></script>
+        <title>Plante Stand Berekening</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-image:url('OI{P.jpeg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            input, button {
+                margin-bottom: 10px;
+            }
+            
+            #Stand, #RyWydte{
+                border: 2px solid green;
+                background-color: #045982;
+                color: #ffffff;
+                font-size: 20px;
+            }
+            h1{
+                color: #ffffff;
+            }
+            
+            #result{
+                border: 2px solid green;
+                background-color: #045982;
+                color: #ffffff;
+                font-size: 20px;
+            }
+
+            .topBar input[type=text] {
+            float: right;
+            padding: 4px;
+            border: none;
+            margin-right: 8px;
+            font-size: 15px;
+            background-color: blue;
+            }
+
+            .topBar {
+            position: relative;
+            color: blue;
+
+            }
+
+            .topBar a {
+            float: left;
+            padding: 12px 10px;
+            text-align: center;
+            font-size: 25px;
+            text-decoration: none;
+            color: #FFFFFF;
+            }
+
+            .topBar a:link{
+            border: 2px solid green;
+            background-color: #045982;
+            color: white;
+            }
+            .menu, .drop-menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            }
+
+            .menu-item {
+            display: inline-block;
+            position: relative;
+            }
+
+            .menu-item a {
+            text-decoration: none;
+            padding: 6px 10px;
+            display: block;
+            }
+
+            .drop-menu {
+            display: none;
+            position: absolute;
+            background-color: #990000;
+            min-width: 180px;
+            }
+
+            .drop-menu-item {
+            width: 100%;
+            }
+
+
+            .drop-menu-item a {
+            color: #FFFFFF;
+            }
+
+            .menu-item:hover .drop-menu {
+            display: block;
+            }
+
+
+
+
+
+
+            .menu{
+            background-color: rgba(26,38,107,0.58);
+            transition: color .5s ease-in-out, box-shadow .5s ease-in-out;
+            border-radius: 30px;
+            }
+
+            .menu:hover{
+            box-shadow: inset 2000px 0 0 0 #FF0000;
+            color: white;
+
+            }
+
+            select {
+            background-color: rgba(26,38,107,0.58);
+            color: #FFF;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 20px;
+
+            }
+
+            select::-ms-expand{
+            display: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+    <header>
+        <nav>
+        <div class="menu">
+      
+      <div class="topBar" align="center">
+				<a href="index.html">Home</a>
+				
+    </div>
+	</div>
+	<select onchange="window.location.href=this.value">
+	    <option value="" selected disabled>Options</option>
+	    <option value="plant_spasiering.html">-In Ry pit Spasiering</option>
+                      
+        <option value="In_ry_pit.html">-Pitte per 10m</option>
+                       
+        <option value="plant_stand.html">-Stand Berekening</option>
+                              
+        <option value="Stand_VS_In_ry.html">-Stand vs In ry Pit Spasiering</option>
+          
+        <option value="Kop_gewig.html">-Kop gewig</option>
+          
+        <option value="Opbrengs.html">-Opbrengs/ha</option>
+	</select>
+</nav>
+</header>
+<br><br><br><br>
+<br><br>
+<h1>Stand Berekening</h1>
+
+<label id="Stand">Rywydte</label><br>
+<input type="text" id="inputA" placeholder="m"><br>
+<label id="RyWydte">Pitte getel</label><br>
+<input type="text" id="inputB" placeholder="/10m"><br>
+<button onclick="compute()">Compute</button>
+<p id="result">
+
+<script type="text/javascript">
+    function compute() {
+        var a = parseFloat(document.getElementById('inputA').value);
+        var b = parseFloat(document.getElementById('inputB').value);
+        var result = 100/a*b*10; // Change this based on your computation
+        document.getElementById('result').innerHTML = 'Result: ' + result + ' plante/ha';
+    }
+</script>
+</p>
+<br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
