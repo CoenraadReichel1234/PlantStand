@@ -178,7 +178,7 @@
         var a = parseFloat(document.getElementById('inputA').value);
         var b = parseFloat(document.getElementById('inputB').value);
         var result = a/((100/b))/10; // Change this based on your computation
-        document.getElementById('result').innerHTML = 'Result: ' + result + ' /10m';
+        document.getElementById('result').innerHTML = 'Result: ' + result.toFixed(2) + ' /10m';
     }
 </script>
 </p>
