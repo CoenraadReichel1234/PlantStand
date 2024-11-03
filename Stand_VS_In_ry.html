@@ -177,7 +177,7 @@
         var a = parseFloat(document.getElementById('inputA').value);
         var b = parseFloat(document.getElementById('inputB').value);
         var result = (100*(100/b))/a*100; // Change this based on your computation
-        document.getElementById('result').innerHTML = 'Result: ' + result + ' plante/ha';
+        document.getElementById('result').innerHTML = 'Result: ' + result.toFixed(2) + ' plante/ha';
     }
 </script>
 </p>
