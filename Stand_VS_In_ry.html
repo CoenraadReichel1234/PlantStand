@@ -9,179 +9,185 @@
         <style>
             body {
                 font-family: Arial, sans-serif;
-                margin: 20px;
-                background-image:url('IMG7.jpeg');
+                margin: 0;
+                height: 100vh; /* Set height to fill the viewport */
+                background-image: url('IMG7.jpeg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-            }
-            input, button {
-                margin-bottom: 10px;
-            }
-            #Stand, #RyWydte{
-                border: 2px solid green;
-                background-color: #045982;
-                color: #ffffff;
-                font-size: 20px;
-            }
-            h1{
-                color: #fff71a;
-            }
-            
-            #result{
-                border: 2px solid green;
-                background-color: #045982;
-                color: #ffffff;
-                font-size: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-            .topBar input[type=text] {
-            float: right;
-            padding: 4px;
-            border: none;
-            margin-right: 8px;
-            font-size: 15px;
-            background-color: blue;
+            h1 {
+                color: #ffffff;
+                font-size: 36px;
+                text-align: center;
+            }
+
+            header {
+                width: 100%;
+                background-color: rgba(26, 38, 107, 0.8); /* Darker background for better visibility */
+                padding: 20px 0; /* Vertical padding */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+                position: relative; /* For positioning the gap */
             }
 
             .topBar {
-            position: relative;
-            color: blue;
-
+                display: flex;
+                justify-content: space-between;
+                width: 90%;
+                margin: 0 auto; /* Center the topBar */
+                align-items: center; /* Center items vertically */
             }
 
             .topBar a {
-            float: left;
-            padding: 12px 10px;
-            text-align: center;
-            font-size: 25px;
-            text-decoration: none;
-            color: #FFFFFF;
+                text-decoration: none;
+                color: #FFFFFF;
+                font-size: 25px;
+                padding: 10px 0; /* Padding for clickable area */
+                border-radius: 5px; /* Rounded corners */
+                transition: background-color 0.3s; /* Smooth background change */
             }
 
-            .topBar a:link{
-            border: 2px solid green;
-            background-color: #045982;
-            color: white;
-            }
-            .menu, .drop-menu {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-            }
-
-            .menu-item {
-            display: inline-block;
-            position: relative;
-            }
-
-            .menu-item a {
-            text-decoration: none;
-            padding: 6px 10px;
-            display: block;
-            }
-
-            .drop-menu {
-            display: none;
-            position: absolute;
-            background-color: #990000;
-            min-width: 180px;
-            }
-
-            .drop-menu-item {
-            width: 100%;
-            }
-
-
-            .drop-menu-item a {
-            color: #FFFFFF;
-            }
-
-            .menu-item:hover .drop-menu {
-            display: block;
-            }
-
-
-
-
-
-
-            .menu{
-            background-color: rgba(26,38,107,0.58);
-            transition: color .5s ease-in-out, box-shadow .5s ease-in-out;
-            border-radius: 30px;
-            }
-
-            .menu:hover{
-            box-shadow: inset 2000px 0 0 0 #FF0000;
-            color: white;
-
+            .topBar a:hover {
+                background-color: rgba(255, 165, 0, 0.7); /* Highlight on hover */
             }
 
             select {
-            background-color: rgba(26,38,107,0.58);
-            color: #FFF;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            padding: 8px;
-            font-size: 20px;
-
+                background-color: rgba(26, 38, 107, 0.58);
+                color: #FFF;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                padding: 8px;
+                font-size: 20px;
+                margin: 10px;
             }
 
-            select::-ms-expand{
-            display: none;
+            #mainBlock {
+                background-color: rgba(6, 95, 6, 0.656);
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                width: 80%;
+                max-width: 600px; /* Responsive max width */
+                margin-top: 40px; /* Gap between header and mainBlock */
+                margin-bottom: 20px; /* Adds some space from the bottom */
             }
-            
+
+            label {
+                font-size: 35px;
+                background-color: #045982;
+                color: #ffffff;
+                display: block;
+                padding: 5px;
+                margin: 10px 0;
+            }
+
+            input {
+                width: 90%;
+                padding: 10px;
+                font-size: 28px;
+                margin: 10px 0;
+                text-align: center;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+            }
+
+            button {
+                background-color: orange;
+                font-size: 30px;
+                font-weight: 700;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                width: 90%;
+                max-width: 200px; /* Responsive max width */
+            }
+
+            #result {
+                padding: 5px;
+                background-color: #045982;
+                color: #ffffff;
+                font-size: 40px;
+                margin-top: 20px;
+            }
+
+            /* Media Queries for Responsiveness */
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 28px;
+                }
+                label {
+                    font-size: 30px;
+                }
+                input {
+                    font-size: 24px;
+                }
+                button {
+                    font-size: 24px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 24px;
+                }
+                label {
+                    font-size: 26px;
+                }
+                input {
+                    font-size:  20px;
+                }
+                button {
+                    font-size: 20 px;
+                }
+            }
         </style>
     </head>
     <body>
-    <header>
-        <nav>
-        <div class="menu">
-      
-      <div class="topBar" align="center">
-				<a href="index.html">Home</a>
-				
-    </div>
-	</div>
-	<select onchange="window.location.href=this.value">
-	    <option value="" selected disabled>Options</option>
-	    <option value="plant_spasiering.html">-In Ry pit Spasiering</option>
-                      
-        <option value="In_ry_pit.html">-Pitte per 10m</option>
-                       
-        <option value="plant_stand.html">-Stand Berekening</option>
-                              
-        <option value="Stand_VS_In_ry.html">-Stand vs In ry Pit Spasiering</option>
-          
-        <option value="Kop_gewig.html">-Kop gewig</option>
-          
-        <option value="Opbrengs.html">-Opbrengs/ha</option>
-	</select>
-</nav>
-</header>
-<br><br><br><br>
-<br><br>
-<h1>Stand vs In ry Pit Spasiering</h1>
+        <header>
+            <nav>
+                
+                    <div class="topBar" align="center">
+                        <a href="index.html">Home</a>
+                    
+                
+                <select onchange="window.location.href=this.value">
+                    <option value="" selected disabled>Options</option>
+                    <option value="plant_spasiering.html">-In Ry pit Spasiering</option>
+                    <option value="In_ry_pit.html">-Pitte per 10m</option>
+                    <option value="plant_stand.html">-Stand Berekening</option>
+                    <option value="Stand_VS_In_ry.html">-Stand vs In ry Pit Spasiering</option>
+                    <option value="Kop_gewig.html">-Kop gewig</option>
+                    <option value="Opbrengs.html">-Opbrengs/ha</option>
+                </select>
+            </div>
+            </nav>
+        </header>
+        <br><br><br><br>
+        
+        
+        <div id="mainBlock">
+            <h1>Stand vs In ry Pit Spasiering</h1><br>
+            <label id="Stand">Spassiering in ry</label>
+            <input type="text" id="inputA" placeholder="cm"><hr><br><br>
+            <label id="RyWydte">Rywydte</label>
+            <input type="text" id="inputB" placeholder="m"><hr><br><br>
+            <button onclick="compute()">Compute</button>
+            <p id="result"></p>
+        </div>
 
-<label id="Stand">Spassiering in ry</label><br>
-<input type="text" id="inputA" placeholder="cm"><br>
-<label id="RyWydte">Rywydte</label><br>
-<input type="text" id="inputB" placeholder="m"><br>
-<button onclick="compute()">Compute</button>
-<p id="result">
-
-<script type="text/javascript">
-    function compute() {
-        var a = parseFloat(document.getElementById('inputA').value);
-        var b = parseFloat(document.getElementById('inputB').value);
-        var result = (100*(100/b))/a*100; // Change this based on your computation
-        document.getElementById('result').innerHTML = 'Result: ' + result.toFixed(2) + ' plante/ha';
-    }
-</script>
-</p>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</body>
-
+        <script type="text/javascript">
+            function compute() {
+                var a = parseFloat(document.getElementById('inputA').value);
+                var b = parseFloat(document.getElementById('inputB').value);
+                var result = (100 * (100 / b)) / a * 100; // Change this based on your computation
+                document.getElementById('result').innerHTML = 'Result: ' + result.toFixed(2) + ' plante/ha';
+            }
+        </script>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </body>
 </html>
