@@ -56,15 +56,14 @@
 
         .slider {
             display: flex;
+            width: 100%; /* Ensure slider takes full width */
             transition: transform 0.5s ease;
-            width: 100%;
-            padding: 0 40px; /* Adds spacing on sides to keep text away from buttons */
-            box-sizing: border-box;
         }
 
         .slide {
-            flex: 0 0 100%;
-            padding: 20px 0; /* Vertical padding for spacing */
+            flex: 0 0 100%; /* Each slide is exactly 100% of container width */
+            min-width: 100%; /* Prevents shrinking */
+            padding: 20px; /* Consistent padding */
             text-align: left;
             box-sizing: border-box;
         }
@@ -84,13 +83,13 @@
 
         .nav-buttons {
             position: absolute;
-            top: 60%; /* Moved down from 50% to be more centered in content area */
+            bottom: 10px; /* Moved to bottom to avoid text overlap */
+            left: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 10px; /* Small padding to keep buttons from edge */
+            padding: 0 15px;
             box-sizing: border-box;
-            pointer-events: none; /* Allows clicks to pass through to slider */
         }
 
         .nav-buttons button {
@@ -105,7 +104,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            pointer-events: auto; /* Ensures buttons are clickable */
         }
 
         .nav-buttons button:disabled {
@@ -120,7 +118,6 @@
             .slide label { font-size: 20px; }
             .slide strong { font-size: 22px; }
             .container { margin: 20px; padding: 20px; }
-            .slider { padding: 0 35px; }
         }
 
         @media (max-width: 414px) { /* iPhone 11-13 */
@@ -129,7 +126,6 @@
             .slide label { font-size: 18px; }
             .slide strong { font-size: 20px; }
             .container { margin: 15px; padding: 15px; }
-            .slider { padding: 0 30px; }
             .nav-buttons button { font-size: 20px; width: 35px; height: 35px; }
         }
     </style>
