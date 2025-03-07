@@ -37,7 +37,7 @@
             margin: 25px;
             width: 90%;
             position: relative;
-            overflow: hidden; /* Hides slides outside the view */
+            overflow: hidden;
         }
 
         img {
@@ -56,13 +56,15 @@
 
         .slider {
             display: flex;
-            transition: transform 0.5s ease; /* Smooth slide animation */
+            transition: transform 0.5s ease;
             width: 100%;
+            padding: 0 40px; /* Adds spacing on sides to keep text away from buttons */
+            box-sizing: border-box;
         }
 
         .slide {
-            flex: 0 0 100%; /* Each slide takes full width */
-            padding: 10px;
+            flex: 0 0 100%;
+            padding: 20px 0; /* Vertical padding for spacing */
             text-align: left;
             box-sizing: border-box;
         }
@@ -82,11 +84,13 @@
 
         .nav-buttons {
             position: absolute;
-            top: 50%;
+            top: 60%; /* Moved down from 50% to be more centered in content area */
             width: 100%;
             display: flex;
             justify-content: space-between;
-            transform: translateY(-50%);
+            padding: 0 10px; /* Small padding to keep buttons from edge */
+            box-sizing: border-box;
+            pointer-events: none; /* Allows clicks to pass through to slider */
         }
 
         .nav-buttons button {
@@ -101,6 +105,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            pointer-events: auto; /* Ensures buttons are clickable */
         }
 
         .nav-buttons button:disabled {
@@ -115,6 +120,7 @@
             .slide label { font-size: 20px; }
             .slide strong { font-size: 22px; }
             .container { margin: 20px; padding: 20px; }
+            .slider { padding: 0 35px; }
         }
 
         @media (max-width: 414px) { /* iPhone 11-13 */
@@ -123,6 +129,7 @@
             .slide label { font-size: 18px; }
             .slide strong { font-size: 20px; }
             .container { margin: 15px; padding: 15px; }
+            .slider { padding: 0 30px; }
             .nav-buttons button { font-size: 20px; width: 35px; height: 35px; }
         }
     </style>
@@ -131,7 +138,7 @@
     <h1>Plante Stand & Opbrengs</h1>
     <div class="container">
         <img src="planteLogo.jpg" alt="Plante Logo" height="180" width="280">
-        <p>Volledige stappe om die app te installeer (skuif links/rechts)</p>
+        <p>Volledige stappe om die app te installeer (skuif links/regs)</p>
         <div class="slider" id="slider">
             <div class="slide">
                 <label><strong>Stap 1:</strong> Gaan na jou iPhone se <em>Instellings</em> (Settings). Tik op jou profiel bo-aan (jou naam en foto, indien ingestel). Jou Apple ID e-posadres word daar vertoon (bv. "voorbeeld@icloud.com"). Skryf hierdie e-posadres neer via die verstrekte Word-dokument wat u ontvang het.</label>
@@ -156,8 +163,8 @@
             </div>
         </div>
         <div class="nav-buttons">
-            <button id="prevBtn" disabled>&larr;</button>
-            <button id="nextBtn">&rarr;</button>
+            <button id="prevBtn" disabled>←</button>
+            <button id="nextBtn">→</button>
         </div>
     </div>
 
@@ -182,7 +189,7 @@
         prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
         nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
 
-        // Touch/swipe support for mobile devices
+        // Touch/swipe support
         let touchStartX = 0;
         let touchEndX = 0;
 
